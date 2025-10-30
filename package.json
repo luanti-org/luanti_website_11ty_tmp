@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build": "npx sass --style=compressed scss:_site/static && npx @11ty/eleventy",
-		"watch:sass": "npx sass scss:_site/static --watch",
+		"build": "npx sass --style=compressed scss:_site/assets/css && npx @11ty/eleventy",
+		"watch:sass": "npx sass scss:_site/assets/css --watch",
 		"watch:eleventy": "npx @11ty/eleventy --serve --quiet",
 		"start": "npm run watch:eleventy & npm run watch:sass",
 		"debug": "DEBUG=Eleventy* npx @11ty/eleventy",

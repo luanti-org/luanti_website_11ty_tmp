@@ -66,7 +66,7 @@ export default function (eleventyConfig) {
 		});
 	});
 
-	eleventyConfig.addFilter("md", function (content = "") {
+	eleventyConfig.addFilter("markdownify", function (content = "") {
 		return mdLibSave.render(content);
 	});
 
