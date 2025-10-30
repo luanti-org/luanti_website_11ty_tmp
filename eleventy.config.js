@@ -1,14 +1,43 @@
-import path from "path";
-
 import UserConfig from "@11ty/eleventy";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
+import { I18nPlugin } from "@11ty/eleventy";
+import i18next from 'i18next';
+import Backend from 'i18next-fs-backend';
+import { join } from 'path';
+import { readdirSync, lstatSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * @param {UserConfig} eleventyConfig
  * @returns {void}
  */
 export default function (eleventyConfig) {
+	i18next.use(Backend).init({
+		initAsync: false,
+		lng: "en",
+		debug: true,
+		backend: {
+			loadPath: join(__dirname, 'locales/{{lng}}/{{ns}}.json')
+		},
+
+		preload: readdirSync(join(__dirname, 'locales')).filter((fileName) => {
+			const joinedPath = join(join(__dirname, 'locales'), fileName)
+			const isDirectory = lstatSync(joinedPath).isDirectory()
+			return isDirectory;
+		}),
+
+		// allow keys to be phrases having `:`, `.`
+		nsSeparator: false,
+		keySeparator: false,
+
+		// do not load a fallback
+		fallbackLng: false
+	});
+
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig.addPassthroughCopy({
@@ -20,6 +49,9 @@ export default function (eleventyConfig) {
 
 	// Official plugins
 	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+	eleventyConfig.addPlugin(I18nPlugin, {
+		defaultLanguage: "en",
+	});
 
 	// Customize Markdown library settings:
 	let mdLibSave = null;
@@ -41,6 +73,11 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.addShortcode("error", async (...messages) => {
 		throw new Error(messages.join(""));
+	});
+
+	eleventyConfig.addFilter("i18n", function(msg) {
+		const lang = this.page.lang ?? "en";
+		return i18next.getFixedT(lang)(msg);
 	});
 }
 
