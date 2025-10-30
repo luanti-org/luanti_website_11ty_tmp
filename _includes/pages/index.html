@@ -31,10 +31,10 @@ redirect_from:
         </div>
         <p class="is-size-6">
           <span class="has-text-weight-bold">{{ "News:" | i18n }}</span>
-          {% assign latest_version = site.data.release.latest %}
-          {{ latest_version.version }} released.
+          {% assign latest_version = release.latest %}
+          {{ "@1 released." | i18n | replace: "@1", latest_version.version }}
 
-          ({{ latest_version.date | date }})
+          ({{ latest_version.date | format_date }})
         </p>
       </div>
     </div>
@@ -56,7 +56,7 @@ redirect_from:
 
         {% for feature in category.features %}
         <h4 class="title feature-title">{{ feature.title | i18n }}</h4>
-        {{ feature.description | markdownify }}
+        	{{ feature.description | markdownify }}
         {% endfor %}
       </div>
       {% endfor %}

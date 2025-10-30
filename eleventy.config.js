@@ -7,6 +7,8 @@ import { join } from 'path';
 import { readdirSync, lstatSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import YAML from "yaml";
+import { DateTime } from "luxon";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -57,6 +59,8 @@ export default function (eleventyConfig) {
 		defaultLanguage: "en",
 	});
 
+	eleventyConfig.addDataExtension("yml,yaml", (contents) => YAML.parse(contents));
+
 	// Customize Markdown library settings:
 	let mdLibSave = null;
 	eleventyConfig.amendLibrary("md", mdLib => {
@@ -79,9 +83,16 @@ export default function (eleventyConfig) {
 		throw new Error(messages.join(""));
 	});
 
+	eleventyConfig.addFilter("format_date", async function(date) {
+		return DateTime.fromJSDate(new Date(date)).toUTC().toLocaleString(DateTime.DATE_FULL, {
+			locale: this.page.lang ?? "en",
+		});
+	});
+
 	eleventyConfig.addFilter("i18n", function(msg) {
 		const lang = this.page.lang ?? "en";
-		return i18next.getFixedT(lang)(msg);
+		return lang;
+		// return i18next.getFixedT(lang)(msg);
 	});
 }
 
