@@ -20,8 +20,19 @@ export default function (eleventyConfig) {
 		initAsync: false,
 		lng: "en",
 		debug: true,
+
+		saveMissing: true,
+
+		// allow keys to be phrases having `:`, `.`
+		nsSeparator: false,
+		keySeparator: false,
+
+		// do not load a fallback
+		fallbackLng: "en",
+
 		backend: {
-			loadPath: join(__dirname, 'locales/{{lng}}/{{ns}}.json')
+			loadPath: join(__dirname, 'locales/{{lng}}/{{ns}}.json'),
+			addPath: join(__dirname, 'locales/{{lng}}/{{ns}}.json'),
 		},
 
 		preload: readdirSync(join(__dirname, 'locales')).filter((fileName) => {
@@ -29,13 +40,6 @@ export default function (eleventyConfig) {
 			const isDirectory = lstatSync(joinedPath).isDirectory()
 			return isDirectory;
 		}),
-
-		// allow keys to be phrases having `:`, `.`
-		nsSeparator: false,
-		keySeparator: false,
-
-		// do not load a fallback
-		fallbackLng: false
 	});
 
 	// Copy the contents of the `public` folder to the output folder
