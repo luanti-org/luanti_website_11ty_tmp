@@ -9,6 +9,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import YAML from "yaml";
 import { DateTime } from "luxon";
+import markdownIt from "markdown-it";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,7 +22,7 @@ export default function (eleventyConfig) {
 	i18next.use(Backend).init({
 		initAsync: false,
 		lng: "en",
-		debug: true,
+		// debug: true,
 
 		saveMissing: true,
 
@@ -61,17 +62,16 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.addDataExtension("yml,yaml", (contents) => YAML.parse(contents));
 
-	// Customize Markdown library settings:
-	let mdLibSave = null;
-	eleventyConfig.amendLibrary("md", mdLib => {
-		mdLibSave = mdLib;
-		mdLib.set({
-			typographer: true,
-		});
+	const md = markdownIt({
+		html: true,
+		breaks: true,
+		linkify: true,
+		typographer: true
 	});
+	eleventyConfig.setLibrary("md", md);
 
 	eleventyConfig.addFilter("markdownify", function (content = "") {
-		return mdLibSave.render(content);
+		return md.render(content);
 	});
 
 	eleventyConfig.addLayoutAlias("base", "layouts/base.html");
@@ -91,8 +91,8 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.addFilter("i18n", function(msg) {
 		const lang = this.page.lang ?? "en";
-		return lang;
-		// return i18next.getFixedT(lang)(msg);
+		// return lang;
+		return i18next.getFixedT(lang)(msg);
 	});
 }
 

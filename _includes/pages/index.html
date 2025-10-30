@@ -11,6 +11,8 @@ redirect_from:
   - /screenshots/
 ---
 
+{% assign langPrefix = "/" | append: lang | append: "/" %}
+
 <section class="section section-home">
   <div class="container">
     <div class="columns is-centered">
@@ -45,7 +47,7 @@ redirect_from:
   <div class="container">
     <h2 id="features" class="title section-title">{{ "Features" | i18n }}</h2>
     <div class="columns is-centered">
-      {% for category_hash in site.data.features %}
+      {% for category_hash in features %}
       {% comment %}
         The assignment below is required to be able to iterate on the nested hash.
       {% endcomment %}
@@ -56,7 +58,7 @@ redirect_from:
 
         {% for feature in category.features %}
         <h4 class="title feature-title">{{ feature.title | i18n }}</h4>
-        	{{ feature.description | markdownify }}
+        	{{ feature.description | i18n | markdownify | replace: "/en/", langPrefix }}
         {% endfor %}
       </div>
       {% endfor %}
@@ -85,7 +87,7 @@ redirect_from:
         For example, the thumbnail for `foo.jpg` will be `foo-thumb.jpg`.
       {% endcomment %}
 
-      {% for image in site.data.gallery %}
+      {% for image in gallery %}
         <figure class="column is-half">
           <a class="image is-16by9" href="{{ image.image | locale_url }}">
             <img
