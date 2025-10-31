@@ -10,8 +10,6 @@ The official Luanti website, living at [www.luanti.org](https://www.luanti.org).
 - Uses modern Web design techniques: `rem` units, `hsl` colors.
 - Responsive site and favicon.
 
-## Translation
-
 ## Development workflow
 
 This site uses the [Eleventy](https://www.11ty.dev/) static site generator.

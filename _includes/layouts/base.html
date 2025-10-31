@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +18,11 @@
 	{% if page.image %}
 	<meta name="og:image" content="{{ image | absolute_url }}">
 	{% endif %}
+	<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absolute_url }}">
+	{%- assign links = page.url | locale_links -%}
+	{%- for link in links %}
+	<link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | absolute_url }}">
+	{%- endfor %}
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<link rel="apple-touch-icon" sizes="57x57" href="/media/favicon/57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/media/favicon/60x60.png">
