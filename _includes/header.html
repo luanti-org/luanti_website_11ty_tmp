@@ -24,8 +24,28 @@
 		<div id="navbar" class="navbar-menu">
 			<div class="navbar-start">
 				{% for item in navbar %}
-					<a class="navbar-item" href="{{ item.url | replace: '/en/', langPrefix }}">{{ item.title | i18n }}</a>
+				<a class="navbar-item" href="{{ item.url | replace: '/en/', langPrefix }}">{{ item.title | i18n }}</a>
 				{% endfor %}
+			</div>
+			<div class="navbar-end">
+
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link">
+						{{ lang | default: "en" | langName }}
+					</a>
+
+					<div class="navbar-dropdown is-right">
+						<a class="navbar-item is-selected" href="{{ page.url }}" lang="{{ lang }}" hreflang="{{ lang }}">
+							{{ lang | default: "en" | langName }}
+						</a>
+						{% assign links = page.url | locale_links %}
+						{%- for link in links %}
+							<a class="navbar-item" href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">
+								{{ link.label }}
+							</a>
+						{%- endfor -%}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

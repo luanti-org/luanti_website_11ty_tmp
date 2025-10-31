@@ -10,6 +10,7 @@ import { dirname } from 'path';
 import YAML from "yaml";
 import { DateTime } from "luxon";
 import markdownIt from "markdown-it";
+import iso639 from "iso-639-1";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -94,6 +95,10 @@ export default function (eleventyConfig) {
 		const lang = this.page.lang ?? "en";
 		// return lang;
 		return i18next.getFixedT(lang)(msg);
+	});
+
+	eleventyConfig.addFilter("langName", function(langCode) {
+		return iso639.getNativeName(langCode.split("-")[0]);
 	});
 }
 
