@@ -95,10 +95,21 @@ export default function (eleventyConfig) {
 		return new Date(date).toISOString();
 	});
 
-	eleventyConfig.addFilter("i18n", function(msg) {
-		const lang = this.page.lang ?? "en";
-		// return lang;
-		return i18next.getFixedT(lang)(msg);
+	eleventyConfig.addFilter("i18n", function(msg, ...args) {
+		const t = i18next.getFixedT(this.page.lang ?? "en");
+
+		if (args.length % 2 !== 0) {
+			throw new Error("i18n: expected even number of arguments");
+		}
+
+		const params = {};
+		for (let i = 0; i < args.length; i++) {
+			const key = args[i];
+			const value = args[i + 1];
+			params[key] = value;
+		}
+
+		return t(msg.replaceAll("[[", "{{").replaceAll("]]", "}}"), params);
 	});
 
 	eleventyConfig.addFilter("langName", function(langCode) {

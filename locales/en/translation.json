@@ -283,5 +283,12 @@
   "Then,\n      <a href='https://github.com/luanti-org/luanti-org.github.io/issues/new'>\n        create an issue</a> or\n      <a href='https://rubenwardy.com/contact/'>contact rubenwardy</a>.": "Then,\n      <a href='https://github.com/luanti-org/luanti-org.github.io/issues/new'>\n        create an issue</a> or\n      <a href='https://rubenwardy.com/contact/'>contact rubenwardy</a>.",
   "More information can be found at\n\t\t\t\t\t<a href='https://openhub.net/p/minetest-c55'>Open Hub</a>.": "More information can be found at\n\t\t\t\t\t<a href='https://openhub.net/p/minetest-c55'>Open Hub</a>.",
   "The core team is formed of people who have made great\n        <a href='/en/credits/'>contributions</a> to Luanti.\n        Contributions are approved if two members of the core team agree on them.": "The core team is formed of people who have made great\n        <a href='/en/credits/'>contributions</a> to Luanti.\n        Contributions are approved if two members of the core team agree on them.",
-  "Want to <a href='/en/get-involved/#contribute'>contribute</a>?": "Want to <a href='/en/get-involved/#contribute'>contribute</a>?"
+  "Want to <a href='/en/get-involved/#contribute'>contribute</a>?": "Want to <a href='/en/get-involved/#contribute'>contribute</a>?",
+  "Luanti {{version}} - portable, 64-bit (recommended)": "Luanti {{version}} - portable, 64-bit (recommended)",
+  "Luanti {{version}} - portable, 32-bit": "Luanti {{version}} - portable, 32-bit",
+  "Luanti {{version}} - App (Signed Apple Silicon, stable)": "Luanti {{version}} - App (Signed Apple Silicon, stable)",
+  "Luanti {{version}} - App (Signed Apple Silicon, experimental OpenAL-soft)": "Luanti {{version}} - App (Signed Apple Silicon, experimental OpenAL-soft)",
+  "Luanti {{version}} - App (Signed Intel 64-bit, stable)": "Luanti {{version}} - App (Signed Intel 64-bit, stable)",
+  "Luanti {{version}} - App (Signed Intel 64-bit, experimental OpenAL-soft)": "Luanti {{version}} - App (Signed Intel 64-bit, experimental OpenAL-soft)",
+  "{{version}} released.": "{{version}} released."
 }
