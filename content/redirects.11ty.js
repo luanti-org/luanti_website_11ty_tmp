@@ -13,6 +13,10 @@ export default class Redirects {
 			return urls.map(url => [ url, this.absolute_url(page.url)]);
 		});
 
+		redirects.push([
+			"/customize/", "https://content.luanti.org"
+		]);
+
 		return JSON.stringify(Object.fromEntries(redirects));
 	}
 }
