@@ -75,6 +75,7 @@ export default function (eleventyConfig) {
 	});
 
 	eleventyConfig.addLayoutAlias("base", "layouts/base.html");
+	eleventyConfig.addLayoutAlias("page_subtitle", "layouts/page_subtitle.html");
 
 	eleventyConfig.addFilter("absolute_url",
 		(x) => new URL(x, "https://www.luanti.org").toString());
@@ -91,7 +92,7 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.addFilter("i18n", function(msg) {
 		const lang = this.page.lang ?? "en";
-		return lang;
+		// return lang;
 		return i18next.getFixedT(lang)(msg);
 	});
 }

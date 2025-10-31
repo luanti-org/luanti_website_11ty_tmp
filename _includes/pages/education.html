@@ -45,7 +45,7 @@ layout: base
   <div class="container">
     <h2 id="resources" class="title is-3">{{ "Resources" | i18n }}</h2>
     <div class="columns is-multiline">
-      {% for point in site.data.edu.resources %}
+      {% for point in edu.resources %}
         {% include "edu_card.html", item: point %}
       {% endfor %}
     </div>
