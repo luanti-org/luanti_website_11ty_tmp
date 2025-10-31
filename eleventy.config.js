@@ -91,6 +91,10 @@ export default function (eleventyConfig) {
 		});
 	});
 
+	eleventyConfig.addFilter("to_iso_string", async function(date) {
+		return new Date(date).toISOString();
+	});
+
 	eleventyConfig.addFilter("i18n", function(msg) {
 		const lang = this.page.lang ?? "en";
 		// return lang;
