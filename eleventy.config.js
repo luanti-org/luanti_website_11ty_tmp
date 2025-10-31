@@ -91,7 +91,7 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.addFilter("i18n", function(msg) {
 		const lang = this.page.lang ?? "en";
-		// return lang;
+		return lang;
 		return i18next.getFixedT(lang)(msg);
 	});
 }
