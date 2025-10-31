@@ -280,5 +280,8 @@
   "\"Minetest in Education\" leaflet": "\"Minetest in Education\" leaflet",
   "Working on an edu project?": "Working on an edu project?",
   "Contribute back to the community by writing about your project\n      and/or making your learning resources publicly available.": "Contribute back to the community by writing about your project\n      and/or making your learning resources publicly available.",
-  "Then,\n      <a href='https://github.com/luanti-org/luanti-org.github.io/issues/new'>\n        create an issue</a> or\n      <a href='https://rubenwardy.com/contact/'>contact rubenwardy</a>.": "Then,\n      <a href='https://github.com/luanti-org/luanti-org.github.io/issues/new'>\n        create an issue</a> or\n      <a href='https://rubenwardy.com/contact/'>contact rubenwardy</a>."
+  "Then,\n      <a href='https://github.com/luanti-org/luanti-org.github.io/issues/new'>\n        create an issue</a> or\n      <a href='https://rubenwardy.com/contact/'>contact rubenwardy</a>.": "Then,\n      <a href='https://github.com/luanti-org/luanti-org.github.io/issues/new'>\n        create an issue</a> or\n      <a href='https://rubenwardy.com/contact/'>contact rubenwardy</a>.",
+  "More information can be found at\n\t\t\t\t\t<a href='https://openhub.net/p/minetest-c55'>Open Hub</a>.": "More information can be found at\n\t\t\t\t\t<a href='https://openhub.net/p/minetest-c55'>Open Hub</a>.",
+  "The core team is formed of people who have made great\n        <a href='/en/credits/'>contributions</a> to Luanti.\n        Contributions are approved if two members of the core team agree on them.": "The core team is formed of people who have made great\n        <a href='/en/credits/'>contributions</a> to Luanti.\n        Contributions are approved if two members of the core team agree on them.",
+  "Want to <a href='/en/get-involved/#contribute'>contribute</a>?": "Want to <a href='/en/get-involved/#contribute'>contribute</a>?"
 }

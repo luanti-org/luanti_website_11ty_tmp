@@ -1,6 +1,7 @@
 ---
 title: Luanti Privacy Policy
 description: Privacy policy for the Luanti application.
+lang: en
 small: |
   Last updated: 2024-08-17
   (<a href="https://github.com/luanti-org/luanti-org.github.io/commits/master/app-privacy-policy.md">View updates</a>)
@@ -22,28 +23,6 @@ Luanti may connect to the following services during its operation:
 
 Note: this policy only applies to the Luanti application, accessing the
 mentioned services directly using a web browser is not covered.
-
-### Table of contents
-
-- [Loading server list](#loading-server-list)
-  - [Information collected](#information-collected)
-  - [How it is used](#how-it-is-used)
-  - [Who has access](#who-has-access)
-  - [Period of retention](#period-of-retention)
-  - [Location](#location)
-- [ContentDB](#contentdb)
-  - [Information collected](#information-collected-1)
-  - [How it is used](#how-it-is-used-1)
-  - [Who has access](#who-has-access-1)
-  - [Period of retention](#period-of-retention-1)
-  - [Location](#location-1)
-  - [Removal requests](#removal-requests)
-- [Version checking](#version-checking)
-  - [Information collected](#information-collected-2)
-  - [How it is used](#how-it-is-used-2)
-- [Online play](#online-play)
-- [Third parties](#third-parties)
-- [Future changes to privacy policy](#future-changes-to-privacy-policy)
 
 
 ## Loading server list

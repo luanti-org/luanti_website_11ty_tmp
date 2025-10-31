@@ -4,6 +4,8 @@ description: Key contributors and developers behind the Luanti project
 layout: base
 ---
 
+{% assign langPrefix = "/" | append: lang | append: "/" %}
+
 <section class="section">
 	<div class="container">
 		<div class="columns is-centered">
@@ -46,14 +48,11 @@ layout: base
 				{% include "credits_list.html", people: credits.previous_contributors %}
 
 				<p class="has-text-weight-bold">
-					{% comment %}
-					OpenHub seems to be flaky, so ignore it in HTMLProofer link checking.
-					{% endcomment %}
 					{{ "More information can be found at
-					<a href='https://www.openhub.net/p/minetest-c55' data-proofer-ignore>Open Hub</a>." | i18n }}
+					<a href='https://openhub.net/p/minetest-c55'>Open Hub</a>." | i18n }}
 				</p>
 				<p>
-					{{ "Want to <a href='/get-involved/#contribute'>contribute</a>?" | i18n }}
+					{{ "Want to <a href='/en/get-involved/#contribute'>contribute</a>?" | i18n | replace: '/en/', langPrefix }}
 				</p>
 
 			</div>

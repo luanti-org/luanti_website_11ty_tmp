@@ -4,6 +4,7 @@ description: >-
   Learn how to get involved with the community or contribute to development.
 layout: base
 ---
+{% assign langPrefix = "/" | append: lang | append: "/" %}
 
 <h1 class="is-sr-only">{{ "Get Involved" | i18n }}</h1>
 
@@ -115,8 +116,8 @@ layout: base
         consisting of a bunch of people who are trusted to keep Luanti
         progressing in good condition." | i18n }}
         {{ "The core team is formed of people who have made great
-        <a href='{{ '/en/credits/' | locale_url }}'>contributions</a> to Luanti.
-        Contributions are approved if two members of the core team agree on them." | i18n }}
+        <a href='/en/credits/'>contributions</a> to Luanti.
+        Contributions are approved if two members of the core team agree on them." | i18n | replace: '/en/', langPrefix }}
       </p>
       <p>
         {{ "All development and decisions are made in public, on

@@ -1,6 +1,5 @@
 import UserConfig from "@11ty/eleventy";
-import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
-import { I18nPlugin } from "@11ty/eleventy";
+import { EleventyHtmlBasePlugin, I18nPlugin, IdAttributePlugin } from "@11ty/eleventy";
 import i18next from 'i18next';
 import Backend from 'i18next-fs-backend';
 import { join } from 'path';
@@ -57,6 +56,7 @@ export default function (eleventyConfig) {
 
 	// Official plugins
 	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+	eleventyConfig.addPlugin(IdAttributePlugin);
 	eleventyConfig.addPlugin(I18nPlugin, {
 		defaultLanguage: "en",
 	});
